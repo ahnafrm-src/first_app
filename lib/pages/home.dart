@@ -3,9 +3,12 @@ import '../element/button.dart';
 import '../element/image_network.dart';
 import '../element/listview.dart';
 import '../element/chatWa.dart';
+import '../data/chat.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final chatData = Chat();
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +34,21 @@ class HomePage extends StatelessWidget {
         width: size.width,
         height: size.height,
         padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(color: Colors.green[400]),
+        decoration: BoxDecoration(color: Color(0xFF1F2C34)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [SizedBox(height: 200, width: size.width, child: Listview(),),
-          Chatwa()
+          children: [
+            SizedBox(height: 200, width: size.width, child: Listview()),
+            SizedBox(height: 5),
+            Expanded(
+              child: ListView.builder(
+                itemCount: chatData.data.length,
+                itemBuilder: (context, index) {
+                  var item = chatData.data[index];
+                  return SizedBox(height: 90, child: item);
+                },
+              ),
+            ),
           ],
         ),
       ),

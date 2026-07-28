@@ -5,6 +5,12 @@ class ButtonHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: () {debugPrint('tombol ditekan di debug');}, child: Text('TEKAN'));
+    return ElevatedButton(
+      onPressed: () {
+        debugPrint('tombol ditekan di debug');
+      },
+      child: Text('Meta AI'),
+      style: ButtonStyle(padding: WidgetStatePropertyAll(EdgeInsets.all(20))),
+    );
   }
 }
