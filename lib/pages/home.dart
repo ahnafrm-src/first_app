@@ -1,9 +1,11 @@
+import 'package:belajar_1/pages/metaAI.dart';
 import 'package:flutter/material.dart';
 import '../element/button.dart';
 import '../element/image_network.dart';
 import '../element/listview.dart';
 import '../element/chatWa.dart';
 import '../data/chat.dart';
+import 'biodata.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -29,6 +31,17 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Biodata()),
+              );
+            },
+            icon: Icon(Icons.home_filled, size: 50, color: Colors.white),
+          ),
+        ],
       ),
       body: Container(
         width: size.width,
@@ -52,7 +65,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: ButtonHome(),
+      floatingActionButton: ButtonHome(page: MetaAi()),
     );
   }
 }
