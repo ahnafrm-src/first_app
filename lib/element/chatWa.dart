@@ -1,43 +1,71 @@
+import 'package:belajar_1/pages/chat_page.dart';
 import 'package:flutter/material.dart';
+
+import '../data/chat_data.dart';
 
 class Chatwa extends StatelessWidget {
   final String read;
-  Chatwa({super.key, required this.read});
+  final ChatData chatData;
+  Chatwa({super.key, required this.read, required this.chatData});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 25,
-          backgroundImage: NetworkImage(
-            "https://i.pinimg.com/736x/1f/5d/ec/1f5dec2772605ebdb412fff7827fb764.jpg",
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Feril maulana henry',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Row(
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(chatData: chatData,)));
+      },
+      child: Ink(
+        color: Colors.transparent, 
+        height: double.infinity,   
+        padding: const EdgeInsets.only(right: 10),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 25,
+              backgroundImage: NetworkImage(
+                chatData.img,
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.check, size: 20, color: Colors.blueAccent),
-                    Text('oke baik', style: TextStyle(color: Colors.grey)),
+                    Text(
+                      chatData.name,
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.check, size: 20, color: Colors.blueAccent),
+                        Text('oke baik', style: TextStyle(color: Colors.grey)),
+                      ],
+                    ),
                   ],
                 ),
-              ],
+              ),
             ),
-          ),
+            Text(read, style: TextStyle(color: Colors.grey),),
+          ],
         ),
-        Text(read, style: TextStyle(color: Colors.grey),),
-      ],
+      ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

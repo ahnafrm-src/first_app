@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import '../element/button.dart';
 import '../element/image_network.dart';
 import '../element/listview.dart';
-import '../element/chatWa.dart';
-import '../data/chat.dart';
+import '../data/chat_listview.dart';
 import 'biodata.dart';
 
 class HomePage extends StatelessWidget {
@@ -58,7 +57,7 @@ class HomePage extends StatelessWidget {
                 itemCount: chatData.data.length,
                 itemBuilder: (context, index) {
                   var item = chatData.data[index];
-                  return SizedBox(height: 90, child: item);
+                  return SizedBox(height: 75, child: item);
                 },
               ),
             ),

@@ -52,12 +52,12 @@ class MetaAi extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Biodata()));
                   },
-                  child: Text('kirim', style: TextStyle(color: Colors.black),),
                   style: ButtonStyle(
                     fixedSize: WidgetStateProperty.all(Size(400, 50)),
                     shape: WidgetStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10))),
                     backgroundColor: WidgetStateProperty.all(Colors.green[200])
                   ),
+                  child: Text('kirim', style: TextStyle(color: Colors.black),),
                 ),
               ],
             ),
