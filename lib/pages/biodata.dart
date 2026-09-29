@@ -1,3 +1,4 @@
+import 'package:belajar_1/pages/list_siswa.dart';
 import 'package:belajar_1/pages/siswa_add.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -78,7 +79,7 @@ class BiodataState extends State<Biodata> {
                         ),
                         subtitle: Text("${data.tplahir}, ${data.tglahir}"),
                         onTap: () {
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) => ListSiswa()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ListSiswa(sw: data)));
                         },
                       ),
                     );

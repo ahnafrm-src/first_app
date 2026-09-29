@@ -43,10 +43,7 @@ class SiswaAddState extends State<SiswaAdd> {
     http.Response response = await createSw();
     final data = json.decode(response.body);
     if (data['success']) {
-      Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => Biodata()),
-        (Route<dynamic> route) => false,
-      );
+      Navigator.of(context).pop(true);
     }
   }
 
